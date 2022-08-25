@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
 
-  resource :cart, only: [:show] do
+  resource :cart, only: [:show, :empty] do
     post   :add_item
     post   :remove_item
+    get    :empty
+
   end
 
   resources :orders, only: [:create, :show]
