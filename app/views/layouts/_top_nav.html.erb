@@ -45,7 +45,7 @@
       <ul class="navbar-nav">
         
           <% if current_user %>
-            <li class="badge badge-dark"><%= current_user.email %></li>
+            <li class="nav-link"><%= current_user.email %> &nbsp | </li>
             <li><%= link_to "Logout", '/logout', class: "nav-link" %></li>
           <% else %>
             <li><%= link_to 'Login', '/login', class: "nav-link" %></li>

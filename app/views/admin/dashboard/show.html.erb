@@ -1,5 +1,14 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<header class="page-header">
+  <h1>Admin &raquo; Dashboard</h1>
+</header>
 
-<h3>Product Count: <%= @product_count %></h3>
-<h3>Category Count: <%= @category_count %></h3>
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    <%= link_to 'Products', admin_products_url, class: "nav-link" %>
+    <span class="badge badge-success badge-pill" style="background-color: green;"><%= @product_count %></span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    <%= link_to 'Categories', admin_categories_url, class: "nav-link" %>
+    <span class="badge badge-success badge-pill" style="background-color: green;"><%= @category_count %></span>
+  </li>
+</ul>
