@@ -2,10 +2,26 @@ Rails.application.routes.draw do
 
   root to: 'products#index'
 
+  #routes for user signup
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
+
+  #routes for login/logout
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+  #routes for showing products/categories
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
+
+  #route for about page
   resources :about, only: [:index]
 
+  #routes for order
+  resources :orders, only: [:create, :show]
+
+  #routes for cart
   resource :cart, only: [:show, :empty] do
     post   :add_item
     post   :remove_item
@@ -13,8 +29,7 @@ Rails.application.routes.draw do
 
   end
 
-  resources :orders, only: [:create, :show]
-
+  #routes for admin
   namespace :admin do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
