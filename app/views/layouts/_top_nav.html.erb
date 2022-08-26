@@ -43,13 +43,15 @@
         </li> %>
       </ul>
       <ul class="navbar-nav">
-        <li>
+        
           <% if current_user %>
-            Signed in as <%= current_user.email %> | <%= link_to "Logout", '/logout' %>
+            <li class="badge badge-dark"><%= current_user.email %></li>
+            <li><%= link_to "Logout", '/logout', class: "nav-link" %></li>
           <% else %>
-            <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+            <li><%= link_to 'Login', '/login', class: "nav-link" %></li>
+            <li><%= link_to 'Signup', '/signup', class: "nav-link" %></li>
           <% end %>
-        </li>
+        
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle text-danger"
