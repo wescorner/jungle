@@ -1,0 +1,8 @@
+<tr>
+  <td>
+    <%= category.name %>
+  </td>
+  <td>
+    <%= Category.joins(:products).where(products: { category_id: category.id }).count %>
+  </td>
+</tr>
