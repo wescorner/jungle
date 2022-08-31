@@ -10,6 +10,12 @@ class OrdersController < ApplicationController
 
     if order.valid?
       empty_cart!
+      puts "--- ALSDKJFHALSDKJFHASDLKFJHALSKDJFH ---ORDER"
+      pp order.inspect
+      order_items = LineItem.where(order_id: order.id)
+      puts "--- ASDLKFJHLASDKJFHASDJKFHASDKJF --- ITEMS"
+      pp order_items.inspect
+      OrderMailer.with(order: order, order_items: order_items).order_receipt.deliver
       redirect_to order, notice: 'Your Order has been placed.'
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }
