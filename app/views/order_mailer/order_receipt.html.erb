@@ -6,13 +6,19 @@
 
   <body>
     <h1>Thank you for your order!</h1>
-    
+    <h3>Your Items:</h3>
+    <br>
+    <p>---------------------</p>
     <div>
-      <% order_items.each do |item| %>
-        <p><%= item.product.name %></p>
+      <% @order_items.each do |item| %>
+        <br>
+        <p>Product: <%= item.product.name %></p>
+        <p>Quantity: <%= item.product.quantity %></p>
+        <p>Cost: <%= item.product.total_price_cents %></p>
       <% end %>
     </div>
-    
+    <br>
+    <p>----------------------</p>
     <p>Total: $<%= @order.total_cents.to_f / 100 %></p>
   </body>
 </html>

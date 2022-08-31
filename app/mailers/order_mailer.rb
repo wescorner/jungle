@@ -1,7 +1,8 @@
 class OrderMailer < ApplicationMailer
   def order_receipt
     @order = params[:order]
-    @user = User.find(session[:user_id])
+    @user = params[:user]
+    @order_items = params[:order_items]
     mail(to: @user.email, subject: "Jungle Order ##{@order.id}")
   end
 end

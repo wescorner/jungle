@@ -1,1 +1,9 @@
-This is the text version of the email.
+Thank you for your order!
+Your Items:
+-------------------------
+<% @order_items.each do |item| %>
+  Product: <%= item.product.name %>
+  Quantity: <%= item.product.quantity %>
+  Cost: <%= item.product.total_price_cents %>
+<% end %>
+Total: $<%= @order.total_cents.to_f / 100 %>
