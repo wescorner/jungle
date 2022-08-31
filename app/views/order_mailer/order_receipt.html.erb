@@ -13,8 +13,8 @@
       <% @order_items.each do |item| %>
         <br>
         <p>Product: <%= item.product.name %></p>
-        <p>Quantity: <%= item.product.quantity %></p>
-        <p>Cost: <%= item.product.total_price_cents %></p>
+        <p>Quantity: <%= item.quantity %></p>
+        <p>Cost: $<%= item.total_price_cents.to_f / 100%></p>
       <% end %>
     </div>
     <br>
